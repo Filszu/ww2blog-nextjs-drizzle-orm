@@ -28,7 +28,8 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-          <p>&copy; 2023 WW2 Machines Blog. All rights reserved.</p>
+          <p>Give a star on <Link href={"https://github.com/filszu"}>Github</Link></p>
+          <p>&copy; 2024 - 2025 WW2 Machines Blog. All rights reserved.</p>
         </div>
       </div>
     </footer>
