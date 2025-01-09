@@ -1,0 +1,78 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Article } from "@/db/schema";
+
+export function ArticleContent({ article }: { article: Article }) {
+  const sections = [
+    {
+      title: "Development and Production",
+      content: article.development_and_production,
+    },
+    { title: "Combat Performance", content: article.combat_performance },
+    { title: "Legacy", content: article.legacy },
+  ];
+
+  return (
+    <>
+      <motion.h1
+        className="text-4xl md:text-5xl font-bold mb-8 text-center font-playfair"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        {article.title}
+      </motion.h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Image
+            src={article.image_url || "/placeholder.svg"}
+            alt={article.title}
+            width={600}
+            height={400}
+            className="rounded-lg shadow-lg w-full h-auto"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Specifications</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div
+                className="prose prose-stone max-w-none"
+                dangerouslySetInnerHTML={{
+                  __html: article.specifications || "",
+                }}
+              />
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+
+      <div className="space-y-8 prose prose-stone max-w-none">
+        {sections.map(
+          (section) =>
+            section.content && (
+              <div key={section.title}>
+                <h2>{section.title}</h2>
+                <div dangerouslySetInnerHTML={{ __html: section.content }} />
+              </div>
+            )
+        )}
+      </div>
+    </>
+  );
+}
