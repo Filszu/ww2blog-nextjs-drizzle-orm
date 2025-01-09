@@ -110,9 +110,11 @@ export function Articles({ articles }: { articles: Article[] }) {
                   <p className="text-gray-600">{article.intro}</p>
                 </CardContent>
                 <CardFooter>
+                <Link href={`/articles/${article.slug}`}>
                   <Button variant="outline" className="w-full">
                     Read More
                   </Button>
+                </Link>
                 </CardFooter>
               </Card>
             </motion.div>
@@ -149,6 +151,7 @@ export function Articles({ articles }: { articles: Article[] }) {
                   </CardContent>
                   <CardFooter>
                     <Link href={`/articles/${article.slug}`}>
+                    
                       <Button variant="outline" className="w-full">
                         Read More
                       </Button>
