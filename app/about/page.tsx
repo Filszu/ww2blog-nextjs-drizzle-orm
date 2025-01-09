@@ -22,7 +22,7 @@ export default function AboutPage() {
             From the iconic tanks that rumbled across European battlefields to the aircraft that dueled in the skies, and the ships that fought epic naval battles, we cover it all. Our team of passionate historians and military enthusiasts work tirelessly to bring you detailed articles, stunning photographs, and insightful analysis.
           </p>
           <p className="text-lg mb-6">
-            Whether you're a history buff, a model maker, or simply curious about the technological marvels of the past, WW2 Machines has something for you. We strive to make our content accessible to all, while maintaining the depth and accuracy that our subject matter demands.
+            Whether you re a history buff, a model maker, or simply curious about the technological marvels of the past, WW2 Machines has something for you. We strive to make our content accessible to all, while maintaining the depth and accuracy that our subject matter demands.
           </p>
           <p className="text-lg mb-8">
             Thank you for visiting WW2 Machines. We hope you enjoy exploring the site and learning about these incredible machines as much as we enjoy sharing their stories.

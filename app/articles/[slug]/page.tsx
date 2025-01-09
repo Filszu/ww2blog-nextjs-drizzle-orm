@@ -9,7 +9,7 @@ import { generateMetadata as createMetadata } from '@/app/utils/metadata'
 interface Props {
   params: { slug: string }
 }
-
+export const revalidate = 10
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await getArticleBySlug(params.slug)
   

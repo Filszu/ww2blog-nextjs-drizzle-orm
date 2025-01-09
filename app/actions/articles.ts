@@ -40,6 +40,8 @@ export async function createArticle(article: NewArticle) {
       created_by: article.created_by || 'admin',
       modified_by: article.modified_by || 'admin'
     }).returning()
+
+    
     return result[0]
   } catch (error) {
     console.error('Error creating article:', error)

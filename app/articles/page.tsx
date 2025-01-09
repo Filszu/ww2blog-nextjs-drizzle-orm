@@ -1,3 +1,4 @@
+
 import { Suspense } from 'react'
 import { Metadata } from 'next'
 import { ArticlesContent } from '@/components/articles-content'
@@ -5,6 +6,7 @@ import { LoadingArticlesGrid } from '@/components/loading-articles-grid'
 import { getArticles } from '../actions/articles'
 import { generateMetadata } from '../utils/metadata'
 
+export const revalidate = 60;
 export const metadata: Metadata = generateMetadata({
   title: 'Articles',
   description: 'Explore our collection of articles about World War II military machines, including tanks, planes, and ships.',
@@ -13,6 +15,7 @@ export const metadata: Metadata = generateMetadata({
 
 export default async function ArticlesPage() {
   const articles = await getArticles()
+  console.log(articles)
 
   return (
     <div className="min-h-screen bg-gray-100 py-12">

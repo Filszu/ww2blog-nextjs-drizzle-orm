@@ -12,55 +12,61 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+// import { Suspense } from "react";
+// import { ArticlesContent } from "./articles-content";
+// import { LoadingArticlesGrid } from "./loading-articles-grid";
+import { Article } from "@/db/schema";
 
-const articles = [
-  {
-    title: "The Mighty Sherman Tank",
-    description:
-      "Explore the history and impact of the M4 Sherman, the most widely used medium tank by the Western Allies in World War II.",
-    image: "/placeholder.svg",
-    category: "tanks",
-  },
-  {
-    title: "Spitfire: Guardian of British Skies",
-    description:
-      "Discover the legendary Supermarine Spitfire, the British single-seat fighter aircraft used by the Royal Air Force during and after World War II.",
-    image: "/placeholder.svg",
-    category: "planes",
-  },
-  {
-    title: "U-boats: Germany's Underwater Threat",
-    description:
-      "Delve into the world of German U-boats, the naval submarines that played a crucial role in the Battle of the Atlantic during World War II.",
-    image: "/placeholder.svg",
-    category: "ships",
-  },
-  {
-    title: "The Iconic T-34 Tank",
-    description:
-      "Learn about the Soviet T-34 tank, widely considered one of the most effective and influential tank designs of World War II.",
-    image: "/placeholder.svg",
-    category: "tanks",
-  },
-  {
-    title: "B-17 Flying Fortress",
-    description:
-      "Explore the history of the B-17 Flying Fortress, a four-engine heavy bomber developed for the United States Army Air Corps.",
-    image: "/placeholder.svg",
-    category: "planes",
-  },
-  {
-    title: "Battleship Yamato: Japan's Naval Giant",
-    description:
-      "Discover the story of the Yamato, the lead ship of the Yamato class of battleships built for the Imperial Japanese Navy shortly before World War II.",
-    image: "/placeholder.svg",
-    category: "ships",
-  },
-];
+// const articles = [
+//   {
+//     title: "The Mighty Sherman Tank",
+//     description:
+//       "Explore the history and impact of the M4 Sherman, the most widely used medium tank by the Western Allies in World War II.",
+//     image: "/placeholder.svg",
+//     category: "tanks",
+//   },
+//   {
+//     title: "Spitfire: Guardian of British Skies",
+//     description:
+//       "Discover the legendary Supermarine Spitfire, the British single-seat fighter aircraft used by the Royal Air Force during and after World War II.",
+//     image: "/placeholder.svg",
+//     category: "planes",
+//   },
+//   {
+//     title: "U-boats: Germany's Underwater Threat",
+//     description:
+//       "Delve into the world of German U-boats, the naval submarines that played a crucial role in the Battle of the Atlantic during World War II.",
+//     image: "/placeholder.svg",
+//     category: "ships",
+//   },
+//   {
+//     title: "The Iconic T-34 Tank",
+//     description:
+//       "Learn about the Soviet T-34 tank, widely considered one of the most effective and influential tank designs of World War II.",
+//     image: "/placeholder.svg",
+//     category: "tanks",
+//   },
+//   {
+//     title: "B-17 Flying Fortress",
+//     description:
+//       "Explore the history of the B-17 Flying Fortress, a four-engine heavy bomber developed for the United States Army Air Corps.",
+//     image: "/placeholder.svg",
+//     category: "planes",
+//   },
+//   {
+//     title: "Battleship Yamato: Japan's Naval Giant",
+//     description:
+//       "Discover the story of the Yamato, the lead ship of the Yamato class of battleships built for the Imperial Japanese Navy shortly before World War II.",
+//     image: "/placeholder.svg",
+//     category: "ships",
+//   },
+// ];
 
 const categories = ["all", "tanks", "planes", "ships"];
 
-export function Articles() {
+export function Articles({ articles }: { articles: Article[] }) {
+
+ 
   return (
     <section id="articles" className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
@@ -89,7 +95,7 @@ export function Articles() {
             >
               <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <Image
-                  src={article.image}
+                  src={article.image_url || "/placeholder.svg"}
                   alt={article.title}
                   width={400}
                   height={300}
@@ -101,7 +107,7 @@ export function Articles() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{article.description}</p>
+                  <p className="text-gray-600">{article.intro}</p>
                 </CardContent>
                 <CardFooter>
                   <Button variant="outline" className="w-full">
@@ -127,7 +133,7 @@ export function Articles() {
               >
                 <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                   <Image
-                    src={article.image}
+                    src={article.image_url || "/placeholder.svg"}
                     alt={article.title}
                     width={400}
                     height={300}
@@ -139,12 +145,14 @@ export function Articles() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600">{article.description}</p>
+                    <p className="text-gray-600">{article.intro || ""}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      Read More
-                    </Button>
+                    <Link href={`/articles/${article.slug}`}>
+                      <Button variant="outline" className="w-full">
+                        Read More
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -152,6 +160,10 @@ export function Articles() {
           </div>
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-gray-100 to-transparent"></div>
         </div>
+
+        {/* <Suspense fallback={<LoadingArticlesGrid />}>
+          <ArticlesContent articles={articles} />
+        </Suspense> */}
 
         <div className="text-center">
           <Button
