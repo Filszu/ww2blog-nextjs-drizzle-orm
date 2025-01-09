@@ -22,35 +22,6 @@ WW2 Blog is a web application dedicated to sharing articles and information abou
 
 - **PostgreSQL**: A powerful, open-source object-relational database system.
 
-## Getting Started
-
-To get a local copy up and running, follow these steps.
-
-### Prerequisites
-
-- Node.js
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/ww2-blog.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd ww2-blog
-   ```
-3. Install dependencies:
-   ```sh
-   npm install
-   ```
-4. Set up environment variables:
-   ```sh
-   cp .env.example .env
-   ```
-   Update the file with your database credentials.
-
 ### Running the Project
 
 To start the development server, run:
