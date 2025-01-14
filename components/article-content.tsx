@@ -4,7 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Article } from "@/db/schema";
-
+import Link from "next/link";
+import wt from "@/public/images/ads/wt.jpg"
 export function ArticleContent({ article }: { article: Article }) {
   const sections = [
     {
@@ -61,6 +62,16 @@ export function ArticleContent({ article }: { article: Article }) {
           </Card>
         </motion.div>
       </div>
+      <Link href={""} target="_blank">
+        {"https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/"}
+        <Image
+          src={wt}
+          alt={"War thunder ad"}
+          width={400}
+          height={300}
+          className="w-full h-48 object-cover"
+        />
+      </Link>
 
       <div className="space-y-8 prose prose-stone max-w-none">
         {sections.map(
