@@ -62,13 +62,13 @@ export function ArticleContent({ article }: { article: Article }) {
           </Card>
         </motion.div>
       </div>
-      <Link href={""} target="_blank">
-        {"https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/"}
+      <Link href={"https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/"} target="_blank">
+        
         <Image
           src={wt}
           alt={"War thunder ad"}
-          width={400}
-          height={300}
+          // width={400}
+          // height={300}
           className="w-full h-48 object-cover"
         />
       </Link>
