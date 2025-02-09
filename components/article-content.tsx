@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Article } from "@/db/schema";
 import Link from "next/link";
-import wt from "@/public/images/ads/wt.jpg"
+import wt from "@/public/images/ads/wt.jpg";
 export function ArticleContent({ article }: { article: Article }) {
   const sections = [
     {
@@ -62,16 +62,24 @@ export function ArticleContent({ article }: { article: Article }) {
           </Card>
         </motion.div>
       </div>
-      <Link href={"https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/"} target="_blank">
+      <div className="flex flex-col items-center justify-center relative max-w-full">
+        <span className="bg-white opacity-70 backdrop-filter backdrop-blur-lg px-2 py-1 rounded-lg shadow-md absolute top-0 ">AD</span>
+        <Link
+          href={
+            "https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/https://naiawork.com/g/3oqdtx0q5jbff4c1d2f51715a9e553/"
+          }
+          target="_blank"
+        >
+          <Image
+            src={wt}
+            alt={"War thunder ad"}
+            width={400}
+            height={300}
+            className="object-cover mt-6"
+          />
+        </Link>
         
-        <Image
-          src={wt}
-          alt={"War thunder ad"}
-          // width={400}
-          // height={300}
-          className="w-full h-48 object-cover"
-        />
-      </Link>
+      </div>
 
       <div className="space-y-8 prose prose-stone max-w-none">
         {sections.map(
@@ -84,6 +92,7 @@ export function ArticleContent({ article }: { article: Article }) {
             )
         )}
       </div>
+      
     </>
   );
 }

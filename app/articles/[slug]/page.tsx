@@ -5,6 +5,7 @@ import { getArticleBySlug } from '@/app/actions/articles'
 import { ArticleContent } from '@/components/article-content'
 import { LoadingArticle } from '@/components/loading-article'
 import { generateMetadata as createMetadata } from '@/app/utils/metadata'
+import PromoLinks from '@/components/PromoLinks'
 
 interface Props {
   params: { slug: string }
@@ -42,6 +43,7 @@ export default async function ArticlePage({ params }: Props) {
           <ArticleContent article={article} />
         </Suspense>
       </div>
+      <PromoLinks />
     </div>
   )
 }
