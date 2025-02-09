@@ -23,11 +23,11 @@ export const metadata: Metadata = {
     title: "WW2 Military Machines Blog",
     description:
       "Dive into the history of WW2 machines — tanks, planes, ships, and more.",
-    url: "https://ww2machines.com",
+    url: "https://ww2machines.vercel.app",
     siteName: "WW2 Machines",
     images: [
       {
-        url: "https://ww2machines.com/og-image.jpg",
+        url: "https://ww2machines.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "WW2 Military Machines",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "WW2 Military Machines Blog",
     description:
       "Explore the fascinating world of World War II military machines.",
-    images: ["https://ww2machines.com/twitter-image.jpg"],
+    images: ["https://ww2machines.vercel.app/twitter-image.jpg"],
   },
 };
 
